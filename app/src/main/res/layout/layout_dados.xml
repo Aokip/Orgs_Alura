@@ -32,5 +32,14 @@
         app:layout_constraintTop_toBottomOf="@id/edt_email"
         android:layout_width="0dp"
         android:layout_height="wrap_content"/>
+    <Button
+        android:id="@+id/botao"
+        app:layout_constraintStart_toStartOf="@id/edt_nome"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/edt_nome"
+        android:layout_margin="25dp"
+        android:text="Salvar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

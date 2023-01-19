@@ -12,10 +12,14 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+    }
+
+    override fun onResume() {
+        super.onResume()
+        val dao = DAO()
         val rv = findViewById<RecyclerView>(R.id.rv)
-        /* configuração do RecyclerView incluindo o Adapter */
-        val lista = listOf<Cadastro>(Cadastro(nome="oi", email= "oi", phone= BigDecimal("1254")))
-        rv.adapter = ListaDeDadosAdapter(lista)
+        rv.adapter = ListaDeDadosAdapter(dao.bucatodos())
         rv.layoutManager = LinearLayoutManager(this)
     }
 }
