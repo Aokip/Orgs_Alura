@@ -24,6 +24,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"/>
     <EditText
+        android:id="@+id/edt_phone"
         app:layout_constraintStart_toStartOf="@id/edt_nome"
         app:layout_constraintEnd_toEndOf="@id/edt_nome"
         android:hint="Telefone"
