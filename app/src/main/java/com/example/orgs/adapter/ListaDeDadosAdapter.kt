@@ -1,24 +1,43 @@
 package com.example.orgs.adapter
 
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.orgs.R
+import com.example.orgs.adapter.lista.Cadastro
 
-class ListaDeDadosAdapter : RecyclerView.Adapter<ListaDeDadosAdapter.ViewHolder>() {
-    class ViewHolder (Listview : View) : RecyclerView.ViewHolder(Listview){
+class ListaDeDadosAdapter(
+    private val itens: List<Cadastro>
+) : RecyclerView.Adapter<ListaDeDadosAdapter.ViewHolder>() {
+    class ViewHolder(Listview: View) : RecyclerView.ViewHolder(Listview) {
+        fun bindview(posicaoLista: Cadastro) {
+            /* Ligação entre a lista "Cadastro" com os edt do "layout_dados" */
+            val nome = itemView.findViewById<TextView>(R.id.edt_nome)
+            val email = itemView.findViewById<TextView>(R.id.edt_email)
+            val phone = itemView.findViewById<TextView>(R.id.edt_phone)
+
+            nome.text = posicaoLista.nome
+            email.text = posicaoLista.email
+            phone.text = posicaoLista.phone.toString()
+
+        }
 
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        TODO("Not yet implemented")
+        val inflate =
+            LayoutInflater.from(parent.context).inflate(R.layout.layout_dados, parent, false)
+        return ViewHolder(inflate)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        TODO("Not yet implemented")
+        val posicaoLista = itens[position]
+        holder.bindview(posicaoLista)
+
     }
 
-    override fun getItemCount(): Int {
-        TODO("Not yet implemented")
-    }
+    override fun getItemCount() = itens.size
 
 }
