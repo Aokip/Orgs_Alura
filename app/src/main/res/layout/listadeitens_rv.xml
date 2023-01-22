@@ -58,6 +58,13 @@
             app:layout_constraintStart_toStartOf="@id/edt_nome_dados"
             app:layout_constraintTop_toBottomOf="@id/edt_email_dados" />
 
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="0dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.3"
+            android:layout_height="wrap_content"/>
+
         <ImageView
             android:id="@+id/img_rv_dados"
             android:layout_width="100dp"
@@ -66,7 +73,7 @@
             android:scaleType="fitCenter"
             android:src="@drawable/anowon"
             app:layout_constraintBottom_toBottomOf="@id/edt_phone_dados"
-            app:layout_constraintStart_toEndOf="@id/edt_nome_dados"
+            app:layout_constraintEnd_toStartOf="@id/guideline"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/edt_nome_dados" />
     </androidx.constraintlayout.widget.ConstraintLayout>
