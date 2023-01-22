@@ -14,9 +14,9 @@ class ListaDeDadosAdapter(
     class ViewHolder(Listview: View) : RecyclerView.ViewHolder(Listview) {
         fun bindview(posicaoLista: Cadastro) {
             /* Ligação entre a lista "Cadastro" com os edt do "layout_dados" */
-            val nome = itemView.findViewById<TextView>(R.id.edt_nome)
-            val email = itemView.findViewById<TextView>(R.id.edt_email)
-            val phone = itemView.findViewById<TextView>(R.id.edt_phone)
+            val nome = itemView.findViewById<TextView>(R.id.edt_nome_dados)
+            val email = itemView.findViewById<TextView>(R.id.edt_email_dados)
+            val phone = itemView.findViewById<TextView>(R.id.edt_phone_dados)
 
             nome.text = posicaoLista.nome
             email.text = posicaoLista.email
@@ -28,7 +28,7 @@ class ListaDeDadosAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflate =
-            LayoutInflater.from(parent.context).inflate(R.layout.layout_dados, parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.listadeitens_rv, parent, false)
         return ViewHolder(inflate)
     }
 
