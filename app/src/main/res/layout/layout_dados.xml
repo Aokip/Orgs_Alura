@@ -15,7 +15,7 @@
         android:layout_height="200dp"/>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/cadastro_nome"
+        android:id="@+id/input_layout_cadastro"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="15dp"
@@ -26,43 +26,48 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
         <com.google.android.material.textfield.TextInputEditText
-
+            android:id="@+id/cadastro_nome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="text"
             />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/cadastro_email"
+        android:id="@+id/input_layout_email"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="E-mail"
         android:layout_margin="15dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cadastro_nome"
+        app:layout_constraintTop_toBottomOf="@id/input_layout_cadastro"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/cadastro_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
             />
 
         </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/cadastro_phone"
+        android:id="@+id/input_layout_phone"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Nome"
+        android:hint="Phone"
         android:layout_margin="15dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cadastro_email"
+        app:layout_constraintTop_toBottomOf="@id/input_layout_email"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/cadastro_phone"
             android:layout_width="match_parent"
+            android:inputType="phone"
             android:layout_height="wrap_content"
             />
 
@@ -82,8 +87,8 @@
         android:layout_margin="25dp"
         android:text="Salvar"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/cadastro_nome"
-        app:layout_constraintStart_toStartOf="@id/cadastro_nome"
+        app:layout_constraintEnd_toEndOf="@+id/input_layout_cadastro"
+        app:layout_constraintStart_toStartOf="@id/input_layout_cadastro"
         app:layout_constraintTop_toBottomOf="@id/guideline_cadastro" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
