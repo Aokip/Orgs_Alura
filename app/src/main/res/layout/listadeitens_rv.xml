@@ -37,7 +37,7 @@
         app:layout_constraintTop_toBottomOf="@id/edt_email_dados" />
 
     <ImageView
-        android:id="@+id/img_rv"
+        android:id="@+id/img_rv_dados"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginStart="5dp"
