@@ -2,58 +2,49 @@
 
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_margin="8dp"
-    app:cardCornerRadius="8dp"
-    android:elevation="8dp"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:elevation="8dp"
+    app:cardCornerRadius="8dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <EditText
+        <TextView
             android:id="@+id/edt_nome_dados"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
-            android:autofillHints=""
             android:ellipsize="end"
             android:fontFamily="@font/montserrat_bold"
-            android:hint="Nome"
-            android:inputType="text"
             android:maxLines="1"
             android:textSize="20sp"
-            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/img_rv_dados"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <EditText
+        <TextView
             android:id="@+id/edt_email_dados"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:ellipsize="end"
             android:fontFamily="@font/montserrat_bold"
-            android:hint="E-mail"
-            android:inputType="textEmailAddress"
             android:maxLines="1"
             android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="@id/edt_nome_dados"
             app:layout_constraintStart_toStartOf="@id/edt_nome_dados"
             app:layout_constraintTop_toBottomOf="@id/edt_nome_dados" />
 
-        <EditText
+        <TextView
             android:id="@+id/edt_phone_dados"
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:ellipsize="end"
             android:fontFamily="@font/montserrat_bold"
-            android:hint="Telefone"
-            android:inputType="phone"
             android:maxLines="1"
             android:textSize="15sp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@id/edt_nome_dados"
             app:layout_constraintStart_toStartOf="@id/edt_nome_dados"
             app:layout_constraintTop_toBottomOf="@id/edt_email_dados" />
@@ -61,9 +52,9 @@
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline"
             android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.3"
-            android:layout_height="wrap_content"/>
+            app:layout_constraintGuide_percent="0.3" />
 
         <ImageView
             android:id="@+id/img_rv_dados"
