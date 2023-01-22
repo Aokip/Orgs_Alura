@@ -10,17 +10,22 @@
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
         android:autofillHints=""
+        android:fontFamily="@font/montserrat_bold"
         android:hint="Nome"
         android:inputType="text"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/img_rv"
+        app:layout_constraintStart_toEndOf="@id/img_rv_dados"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/edt_email_dados"
+        android:textSize="15sp"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="E-mail"
+        android:fontFamily="@font/montserrat_bold"
         android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="@id/edt_nome_dados"
         app:layout_constraintStart_toStartOf="@id/edt_nome_dados"
@@ -28,9 +33,11 @@
 
     <EditText
         android:id="@+id/edt_phone_dados"
+        android:textSize="15sp"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="Telefone"
+        android:fontFamily="@font/montserrat_bold"
         android:inputType="phone"
         app:layout_constraintEnd_toEndOf="@id/edt_nome_dados"
         app:layout_constraintStart_toStartOf="@id/edt_nome_dados"
