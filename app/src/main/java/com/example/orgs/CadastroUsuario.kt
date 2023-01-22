@@ -15,9 +15,9 @@ class CadastroUsuario : AppCompatActivity() {
 
         val bt = findViewById<Button>(R.id.botao)
         bt.setOnClickListener {
-            val nome = findViewById<TextView>(R.id.edt_nome_dados)
-            val email = findViewById<TextView>(R.id.edt_email_dados)
-            val phone = findViewById<TextView>(R.id.edt_phone_dados)
+            val nome = findViewById<TextView>(R.id.cadastro_nome)
+            val email = findViewById<TextView>(R.id.cadastro_email)
+            val phone = findViewById<TextView>(R.id.cadastro_phone)
             val recuperanome = nome.text.toString()
             val recuperaemail = email.text.toString()
             val recuperaphone = phone.text.toString()
