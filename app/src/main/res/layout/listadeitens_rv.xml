@@ -1,36 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="wrap_content">
 
     <EditText
         android:id="@+id/edt_nome_dados"
-        android:layout_margin="15dp"
         android:layout_width="0dp"
-        android:inputType="text"
         android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:autofillHints=""
         android:hint="Nome"
-       app:layout_constraintStart_toStartOf="parent"
+        android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:autofillHints="" />
+        app:layout_constraintStart_toEndOf="@id/img_rv"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <EditText
         android:id="@+id/edt_email_dados"
-        app:layout_constraintStart_toStartOf="@id/edt_nome_dados"
-        app:layout_constraintEnd_toEndOf="@id/edt_nome_dados"
-        app:layout_constraintTop_toBottomOf="@id/edt_nome_dados"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:hint="E-mail"
         android:inputType="textEmailAddress"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"/>
+        app:layout_constraintEnd_toEndOf="@id/edt_nome_dados"
+        app:layout_constraintStart_toStartOf="@id/edt_nome_dados"
+        app:layout_constraintTop_toBottomOf="@id/edt_nome_dados" />
+
     <EditText
         android:id="@+id/edt_phone_dados"
-        app:layout_constraintStart_toStartOf="@id/edt_nome_dados"
-        app:layout_constraintEnd_toEndOf="@id/edt_nome_dados"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:hint="Telefone"
         android:inputType="phone"
-        app:layout_constraintTop_toBottomOf="@id/edt_email_dados"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"/>
+        app:layout_constraintEnd_toEndOf="@id/edt_nome_dados"
+        app:layout_constraintStart_toStartOf="@id/edt_nome_dados"
+        app:layout_constraintTop_toBottomOf="@id/edt_email_dados" />
+
+    <ImageView
+        android:id="@+id/img_rv"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="5dp"
+        android:scaleType="centerCrop"
+        android:src="@color/cardview_dark_background"
+        app:layout_constraintBottom_toBottomOf="@id/edt_phone_dados"
+        app:layout_constraintStart_toEndOf="@id/edt_nome_dados"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/edt_nome_dados" />
 </androidx.constraintlayout.widget.ConstraintLayout>
