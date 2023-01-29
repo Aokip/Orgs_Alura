@@ -24,7 +24,13 @@ class ListaDeDadosAdapter(
             nome.text = posicaoLista.nome
             email.text = posicaoLista.email
             phone.text = posicaoLista.phone.toString()
-            img.load(posicaoLista.url)
+            img.load(posicaoLista.url) {
+                fallback(R.drawable.magiccarta)
+                error(R.drawable.magiccarta)
+
+
+
+            }
 
         }
 
