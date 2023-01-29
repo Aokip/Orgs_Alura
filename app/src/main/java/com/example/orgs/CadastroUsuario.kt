@@ -1,38 +1,53 @@
 package com.example.orgs
 
+import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.app.Dialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Layout
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import coil.load
 import com.example.orgs.adapter.lista.Cadastro
+import com.example.orgs.databinding.LayoutDadosBinding
+import com.example.orgs.databinding.LayoutDialogBinding
 import java.math.BigDecimal
 
 class CadastroUsuario : AppCompatActivity() {
     private val dao = DAO()
+    private var url : String = "https://universonerd.net/portal/wp-content/uploads/2017/06/magic-carta.jpg"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.layout_dados)
-        val img = findViewById<ImageView>(R.id.img_cadastro_usuario)
-        val bt = findViewById<Button>(R.id.botao)
-        AdicionaCadastro(bt)
-        AbreDialog(img)
-    }
+        val binding = LayoutDadosBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        val img = binding.imgCadastroUsuario
+        val bt = binding.botao
+        val binding_dialog = LayoutDialogBinding.inflate(layoutInflater)
+        val buttDialog = binding_dialog.buttDialog
+        buttDialog.setOnClickListener {
+            url = binding_dialog.edtLayoutDialog.text.toString()
+            binding_dialog.imgDialog.load(url)
+        }
 
-
-
-
-    private fun AbreDialog(img: ImageView) {
         img.setOnClickListener {
             AlertDialog.Builder(this)
-                .setView(R.layout.layout_dialog)
-                .setPositiveButton("Confirmar") { _, _ -> }
+                .setView(binding_dialog.root)
+                .setPositiveButton("Confirmar") { _, _ ->
+                    url = binding_dialog.edtLayoutDialog.text.toString()
+                    binding.imgCadastroUsuario.load(url)
+                }
                 .setNegativeButton("Cancelar") { _, _ -> }
                 .show()
         }
+        AdicionaCadastro(bt)
+
     }
+
+
+
 
 
     private fun AdicionaCadastro(bt: Button) {
@@ -48,7 +63,8 @@ class CadastroUsuario : AppCompatActivity() {
             } else {
                 recuperaphone.toBigDecimal()
             }
-            val cadastro = Cadastro(recuperanome, recuperaemail, dadosphone)
+
+            val cadastro = Cadastro(recuperanome, recuperaemail, dadosphone, url)
 
             dao.adicionar(cadastro)
             finish()
