@@ -5,5 +5,6 @@ import java.math.BigDecimal
 data class Cadastro (
     val nome : String,
     val email: String,
-    val phone : BigDecimal
+    val phone : BigDecimal,
+    var url : String? = null,
         )
