@@ -9,7 +9,7 @@
         android:id="@+id/img_cadastro_usuario"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:scaleType="centerCrop"
+        android:scaleType="fitCenter"
         app:layout_constraintEnd_toEndOf="parent"
         android:src="@drawable/anowon"
         android:layout_width="0dp"
