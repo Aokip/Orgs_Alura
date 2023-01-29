@@ -17,7 +17,7 @@ import java.math.BigDecimal
 
 class CadastroUsuario : AppCompatActivity() {
     private val dao = DAO()
-    private var url : String = "https://universonerd.net/portal/wp-content/uploads/2017/06/magic-carta.jpg"
+    private var url : String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
