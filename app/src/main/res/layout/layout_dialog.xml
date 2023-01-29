@@ -21,7 +21,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/bt_dialog"
+            android:id="@+id/butt_dialog"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Carregar"
@@ -41,7 +41,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
-            app:layout_constraintTop_toBottomOf="@id/bt_dialog">
+            app:layout_constraintTop_toBottomOf="@id/butt_dialog">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edt_layout_dialog"
