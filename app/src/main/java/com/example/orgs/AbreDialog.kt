@@ -7,8 +7,21 @@ import com.example.orgs.databinding.LayoutDialogBinding
 import com.example.orgs.extenx.TentacarregarImagem
 
 class AbreDialog(private val context: Context) {
-    fun mostra(CarregaURL: (imagem: String) -> Unit) {
+    fun mostra(
+        UrlPadrão: String? = null,
+        CarregaURL: (imagem: String) -> Unit
+    ) {
         val binding_dialog = LayoutDialogBinding.inflate(LayoutInflater.from(context))
+ /*
+ -Criado a Url na função mostra para recuperar a imagem caso o usuário clicar na imagem do cadastro
+ logo após já ter carregado uma primeira url
+  */
+        UrlPadrão?.let {imagem ->
+            binding_dialog.imgDialog.TentacarregarImagem(imagem)
+            binding_dialog.edtLayoutDialog.setText(imagem)
+        }
+
+
         val buttDialog = binding_dialog.buttDialog.setOnClickListener {
             val url = binding_dialog.edtLayoutDialog.text.toString()
             binding_dialog.imgDialog.TentacarregarImagem(url)
