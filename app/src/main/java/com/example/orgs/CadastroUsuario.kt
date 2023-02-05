@@ -27,29 +27,19 @@ class CadastroUsuario : AppCompatActivity() {
         setContentView(binding.root)
         val img = binding.imgCadastroUsuario
         val bt = binding.botao
-        /* Inflar o Dialog para ao clicar no botão "carregar" do dialog recuperar a URL e utilizar o coil para ser
-        apresentado no Dialog
+        /* Utilizado a função de clique no formulario de cadastro
+        - chamado a classe "AbreDialog" enviando o context atual
+        - Chamado a função "mostra" onde Abre o Dialog -> Carrega a imagem na ação da função
+        e envia a url do listener por highorder na propria chamada da função.
          */
-        val binding_dialog = LayoutDialogBinding.inflate(layoutInflater)
-        val buttDialog = binding_dialog.buttDialog
-        buttDialog.setOnClickListener {
-            url = binding_dialog.edtLayoutDialog.text.toString()
-            binding_dialog.imgDialog.TentacarregarImagem(url)
-        }
-        /* Dialog abrindo ao clicar na imagem do cadastro */
         img.setOnClickListener {
-            AlertDialog.Builder(this)
-                .setView(binding_dialog.root)
-                .setPositiveButton("Confirmar") { _, _ ->
-                    /* Ao clicar no botão confirmar é carregado a imagem no cadastro do usuário, sem o dialog */
-                    url = binding_dialog.edtLayoutDialog.text.toString()
-                    binding.imgCadastroUsuario.TentacarregarImagem(url)
+            AbreDialog(this).mostra { imagem ->
+            url = imagem
+            binding.imgCadastroUsuario.TentacarregarImagem(url)
 
-
-                }
-                .setNegativeButton("Cancelar") { _, _ -> }
-                .show()
+            }
         }
+
         AdicionaCadastro(bt)
 
     }
