@@ -33,7 +33,12 @@ class CadastroUsuario : AppCompatActivity() {
         e envia a url do listener por highorder na propria chamada da função.
          */
         img.setOnClickListener {
-            AbreDialog(this).mostra { imagem ->
+            /*
+            função mostra recuperando a URL do formulario de cadastro
+            - caso a URL for null será apresentado uma imagem vazio
+            - Caso a imagem do cadastro estiver com uma URL será carregada no dialogo
+             */
+            AbreDialog(this).mostra(url) { imagem ->
             url = imagem
             binding.imgCadastroUsuario.TentacarregarImagem(url)
 
