@@ -24,7 +24,7 @@ class ListaDeDadosAdapter(
         private lateinit var produto: Cadastro
 
         /*
-        inicia e faz a checagem se o produto foi inicializado
+        inicia e faz a checagem se o produto foi inicializado recuperando os dados do obj
          */
         init {
             itemView.setOnClickListener {
