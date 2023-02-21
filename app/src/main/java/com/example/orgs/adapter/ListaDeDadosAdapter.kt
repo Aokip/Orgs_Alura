@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.example.orgs.R
 import com.example.orgs.adapter.lista.Cadastro
+import com.example.orgs.extenx.TentacarregarImagem
 
 class ListaDeDadosAdapter(
     private val itens: List<Cadastro>,
@@ -16,11 +17,12 @@ class ListaDeDadosAdapter(
     chamadas, desta forma ao clicar em um item do RV teremos o objeto do Cadastro.
      */
     var quandoclicanoItem: (produto: Cadastro) -> Unit = {}
+
 ) : RecyclerView.Adapter<ListaDeDadosAdapter.ViewHolder>() {
     inner class ViewHolder(Listview: View) : RecyclerView.ViewHolder(Listview) {
         /*
         cria uma variavel para ser inicializada depois
-         */
+
         private lateinit var produto: Cadastro
 
         /*
@@ -32,12 +34,12 @@ class ListaDeDadosAdapter(
                     quandoclicanoItem(produto)
             }
         }
-
+ */
         fun bindview(produto: Cadastro) {
             /*
             informa que o produto enviado é o do Cadastro
              */
-            this.produto
+
             /* Ligação entre a lista "Cadastro" com os edt do "layout_dados" */
             val nome = itemView.findViewById<TextView>(R.id.edt_nome_dados)
             val email = itemView.findViewById<TextView>(R.id.edt_email_dados)
@@ -48,7 +50,7 @@ class ListaDeDadosAdapter(
             nome.text = produto.nome
             email.text = produto.email
             phone.text = produto.phone.toString()
-            img.load(produto.url)
+            img.TentacarregarImagem(produto.url)
 
 
         }
