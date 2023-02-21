@@ -22,23 +22,24 @@ class ListaDeDadosAdapter(
     inner class ViewHolder(Listview: View) : RecyclerView.ViewHolder(Listview) {
         /*
         cria uma variavel para ser inicializada depois
-
+*/
         private lateinit var produto: Cadastro
 
         /*
         inicia e faz a checagem se o produto foi inicializado recuperando os dados do obj
-         */
+ */
+
         init {
             itemView.setOnClickListener {
                 if (::produto.isInitialized)
                     quandoclicanoItem(produto)
             }
         }
- */
         fun bindview(produto: Cadastro) {
             /*
             informa que o produto enviado é o do Cadastro
              */
+                this.produto = produto
 
             /* Ligação entre a lista "Cadastro" com os edt do "layout_dados" */
             val nome = itemView.findViewById<TextView>(R.id.edt_nome_dados)
