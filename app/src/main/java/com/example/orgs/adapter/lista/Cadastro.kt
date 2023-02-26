@@ -7,4 +7,4 @@ data class Cadastro (
     val email: String,
     val phone : BigDecimal,
     var url : String? = null,
-        )
+        ) : java.io.Serializable
