@@ -5,7 +5,6 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import coil.load
 import com.example.orgs.R
 import com.example.orgs.adapter.lista.Cadastro
 import com.example.orgs.extenx.TentacarregarImagem
@@ -51,7 +50,7 @@ class ListaDeDadosAdapter(
             nome.text = produto.nome
             email.text = produto.email
             phone.text = produto.phone.toString()
-            img.TentacarregarImagem(produto.url)
+            img.TentacarregarImagem(produto.imagem)
 
 
         }
