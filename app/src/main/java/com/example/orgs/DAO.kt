@@ -1,6 +1,8 @@
 package com.example.orgs
 
+import androidx.room.Entity
 import com.example.orgs.adapter.lista.Cadastro
+
 
 class DAO {
     fun adicionar (cadastro : Cadastro){
