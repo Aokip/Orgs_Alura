@@ -13,13 +13,14 @@ import android.widget.TextView
 import coil.imageLoader
 import coil.load
 import com.example.orgs.adapter.lista.Cadastro
+import com.example.orgs.database.ProdutoDaoRom.Builder.CadastroBuilder
 import com.example.orgs.databinding.LayoutDadosBinding
 import com.example.orgs.databinding.LayoutDialogBinding
 import com.example.orgs.extenx.TentacarregarImagem
 import java.math.BigDecimal
 
 class CadastroUsuario : AppCompatActivity() {
-    private val dao = DAO()
+    private val dao = CadastroBuilder()
     private var url: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -65,9 +66,11 @@ class CadastroUsuario : AppCompatActivity() {
                 recuperaphone.toBigDecimal()
             }
 
-            val cadastro = Cadastro(recuperanome, recuperaemail, dadosphone, url)
+            val cadastro = Cadastro(nome = recuperanome, email = recuperaemail, phone = dadosphone)
 
-            dao.adicionar(cadastro)
+            val buider = dao.buider(this)
+            buider.salva(cadastro)
+
             finish()
 
 

@@ -2,7 +2,6 @@ package com.example.orgs.database.ProdutoDaoRom
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import androidx.room.TypeConverter
 import androidx.room.TypeConverters
 import com.example.orgs.database.ProdutoDaoRom.Conversores.Conversores
 

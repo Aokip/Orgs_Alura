@@ -15,7 +15,7 @@ import com.example.orgs.database.ProdutoDaoRom.ProdutoDaoRom
 import com.example.orgs.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-    private val dao = DAO()
+    private val dao = CadastroBuilder().buider(this)
 
     private val binding by lazy {
         ActivityMainBinding.inflate(layoutInflater)
@@ -25,11 +25,6 @@ class MainActivity : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-
-      val builder = CadastroBuilder().buider(this)
-        builder.salva()
-
-
 
 
     }
