@@ -10,6 +10,7 @@ import androidx.room.Room
 import com.example.orgs.adapter.ListaDeDadosAdapter
 import com.example.orgs.adapter.lista.Cadastro
 import com.example.orgs.database.ProdutoDaoRom.AppDataBase
+import com.example.orgs.database.ProdutoDaoRom.Builder.CadastroBuilder
 import com.example.orgs.database.ProdutoDaoRom.ProdutoDaoRom
 import com.example.orgs.databinding.ActivityMainBinding
 
@@ -25,22 +26,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        /*
-        Chamada do Room build para construir as chamadas diretamente do APPDataBase
-         */
-        val db = Room.databaseBuilder(
-            this,
-            AppDataBase::class.java,
-            "Orgs.bd"
+      val builder = CadastroBuilder().buider(this)
+        builder.salva()
 
-        ).allowMainThreadQueries()
-            .build()
-      /*
-      faz a chamada da variavel db e instancia o "databaseProduto" dentro da classe
-      "AppDataBase" onde possui os conversores e a função "databaseProduto" que faz um extensão da
-      interface "ProdutosDaoRom" onde possui as Querys
-       */
-        val databaseProduto = db.databaseProduto()
 
 
 
