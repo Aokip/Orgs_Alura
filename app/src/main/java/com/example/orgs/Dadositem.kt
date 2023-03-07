@@ -2,6 +2,7 @@ package com.example.orgs
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
 import com.example.orgs.adapter.lista.Cadastro
 import com.example.orgs.databinding.ActivityDadosItemBinding
 import com.example.orgs.extenx.TentacarregarImagem
@@ -20,6 +21,14 @@ utilizando o binding e determinando onde cada informação será alocada
  */
         RecebeDados()
 
+    }
+/*
+Implementa o menu na actv e faz o processo de inflater para ser apresentado na actv de detalhes do cadastro
+
+ */
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_detalhes, menu)
+        return super.onCreateOptionsMenu(menu)
     }
 
     private fun RecebeDados() {

@@ -15,7 +15,7 @@ interface ProdutoDaoRom {
    fun buscatodos(): List<Cadastro>
 
    /*
-   utilizando o insert para determinar o salvamento do obj
+   utilizando o insert para determinar o salvamento do objs
    tipo -> vararg é utilizado para salvar um ou mais registros na mesma chamada.
     */
    @Insert
