@@ -3,6 +3,7 @@ package com.example.orgs
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
+import android.view.MenuItem
 import com.example.orgs.adapter.lista.Cadastro
 import com.example.orgs.databinding.ActivityDadosItemBinding
 import com.example.orgs.extenx.TentacarregarImagem
@@ -29,6 +30,22 @@ Implementa o menu na actv e faz o processo de inflater para ser apresentado na a
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_detalhes, menu)
         return super.onCreateOptionsMenu(menu)
+    }
+/*
+   função onOptionsItemSelected tem a função de identificar qual menu foi selecionado e realizar a
+   ação pertinente do menu, no código abaixo o "when" é utilizado para realizar a ação de -> QUANDO o menu X
+   for selecionado realizar a ação de editar, QUANDO o menu Y for selecionado realizar ação pertinente
+ */
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.menu_editar -> {
+
+            }
+            R.id.menu_remover -> {
+
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     private fun RecebeDados() {

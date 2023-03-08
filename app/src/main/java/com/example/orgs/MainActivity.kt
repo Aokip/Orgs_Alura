@@ -15,7 +15,7 @@ import com.example.orgs.database.ProdutoDaoRom.ProdutoDaoRom
 import com.example.orgs.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-    private val dao = CadastroBuilder().buider(this)
+
 
     private val binding by lazy {
         ActivityMainBinding.inflate(layoutInflater)
@@ -31,6 +31,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
+        val dao = CadastroBuilder().buider(this)
         AbreCadastro()
         val recycler = binding.rv
         val listaDeDadosAdapter = ListaDeDadosAdapter(dao.buscatodos())

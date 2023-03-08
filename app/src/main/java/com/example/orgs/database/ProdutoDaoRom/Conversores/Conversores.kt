@@ -10,7 +10,7 @@ class Conversores {
     Retorno se o valor for diferente de null, recebe em BigDecimal o valor informado no BD
     Caso o valor for nulo " ?: " -> Converte a função em Zero, para não "quebrar o APP"
      */
-    @TypeConverters
+    @TypeConverter
     fun deDouble(valor: Double?): BigDecimal {
         return valor?.let {
             BigDecimal(valor.toString())
@@ -23,7 +23,7 @@ class Conversores {
     O Double é um tipo que aceita o nulo então não precisa realizar um tratamento caso o valor for nulo, igual
     a função "deDouble".
      */
-    @TypeConverters
+    @TypeConverter
     fun deBigDecimal(valor: BigDecimal?): Double? {
         return valor?.let {
             valor.toDouble()

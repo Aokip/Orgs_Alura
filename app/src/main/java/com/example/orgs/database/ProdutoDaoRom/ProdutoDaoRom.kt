@@ -1,16 +1,18 @@
 package com.example.orgs.database.ProdutoDaoRom
 
 import androidx.room.Dao
+import androidx.room.Entity
 import androidx.room.Insert
 import androidx.room.Query
 import com.example.orgs.adapter.lista.Cadastro
+
 
 @Dao
 /*
 Para o DAO criamos um interface para comunicar nas chamadas, mas não é uma classe para ser implementada
 com suas funções
  */
-interface ProdutoDaoRom {
+ interface ProdutoDaoRom {
     @Query("SELECT * FROM Cadastro")
    fun buscatodos(): List<Cadastro>
 

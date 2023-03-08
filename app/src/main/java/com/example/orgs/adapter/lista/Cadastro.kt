@@ -1,6 +1,7 @@
 package com.example.orgs.adapter.lista
 
 import android.os.Parcelable
+import androidx.room.Dao
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import kotlinx.parcelize.Parcelize
