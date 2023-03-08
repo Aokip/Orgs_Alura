@@ -1,6 +1,7 @@
 package com.example.orgs.database.ProdutoDaoRom
 
 import androidx.room.Dao
+import androidx.room.Delete
 import androidx.room.Entity
 import androidx.room.Insert
 import androidx.room.Query
@@ -22,6 +23,9 @@ com suas funções
     */
    @Insert
    fun salva(vararg cadastro: Cadastro)
+
+   @Delete
+   fun deleta(vararg cadastro: Cadastro)
 
 
 }
