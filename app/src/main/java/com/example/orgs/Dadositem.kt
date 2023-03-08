@@ -16,6 +16,7 @@ class Dadositem : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+        title = "Detalhes"
 /*
 utiliza o intent para recuperar o objt da classe main, coletando o objt e informando onde será apresentado,
 utilizando o binding e determinando onde cada informação será alocada

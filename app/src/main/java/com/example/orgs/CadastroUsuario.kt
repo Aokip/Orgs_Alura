@@ -27,6 +27,7 @@ class CadastroUsuario : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         val binding = LayoutDadosBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        title = "Cadastro"
         val img = binding.imgCadastroUsuario
         val bt = binding.botao
         /* Utilizado a função de clique no formulario de cadastro
