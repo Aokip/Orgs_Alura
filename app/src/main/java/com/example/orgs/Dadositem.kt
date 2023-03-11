@@ -1,5 +1,6 @@
 package com.example.orgs
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -43,24 +44,32 @@ utilizando o binding e determinando onde cada informação será alocada
      */
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-                R.id.menu_remover -> {
-                    /*
-                    - if (::produto.isInitialized) -> verifica se o produto foi inicializado para não enviar
-                    um valor nulo ao abrir os dados do item e crashar o app, com a verificação "initialized"
-                    verifica se ao clicar no produto foi recebido um obj do tipo cadastro, com a recebimento
-                    do obj o produto foi inicializado.
-                     */
-                    if (::produto.isInitialized) {
-                        val buider = CadastroBuilder().buider(this)
-                        buider.deleta(produto)
+            R.id.menu_remover -> {
+                /*
+                - if (::produto.isInitialized) -> verifica se o produto foi inicializado para não enviar
+                um valor nulo ao abrir os dados do item e crashar o app, com a verificação "initialized"
+                verifica se ao clicar no produto foi recebido um obj do tipo cadastro, com a recebimento
+                do obj o produto foi inicializado.
+                 */
+                if (::produto.isInitialized) {
+                    val buider = CadastroBuilder().buider(this)
+                    buider.deleta(produto)
 
-                    }
                 }
-                R.id.menu_editar -> {
-
+            }
+            R.id.menu_editar -> {
+                /*
+                Ao clicar no campo editar, será enviado o cadastro para a actv de cadstro preenchendo
+                os campos conforme o ID
+                 */
+                Intent(this, CadastroUsuario::class.java).apply {
+                    putExtra("CADASTRO", produto)
+                    startActivity(this)
                 }
 
             }
+
+        }
 
 
 

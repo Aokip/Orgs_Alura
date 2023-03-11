@@ -22,6 +22,7 @@ import java.math.BigDecimal
 class CadastroUsuario : AppCompatActivity() {
     private val dao = CadastroBuilder()
     private var url: String? = null
+    private var id = 0L
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,13 +43,23 @@ class CadastroUsuario : AppCompatActivity() {
             - Caso a imagem do cadastro estiver com uma URL será carregada no dialogo
              */
             AbreDialog(this).mostra(url) { imagem ->
-            url = imagem
-            binding.imgCadastroUsuario.TentacarregarImagem(url)
+                url = imagem
+                binding.imgCadastroUsuario.TentacarregarImagem(url)
 
             }
         }
 
         AdicionaCadastro(bt)
+
+        intent.getParcelableExtra<Cadastro>("CADASTRO")?.let { produtoCarregado ->
+            id = produtoCarregado.id
+            binding.imgCadastroUsuario.TentacarregarImagem(produtoCarregado.imagem)
+            binding.cadastroNome.setText(produtoCarregado.nome)
+            binding.cadastroEmail.setText(produtoCarregado.email)
+            binding.cadastroPhone.setText(produtoCarregado.phone.toPlainString())
+
+
+        }
 
     }
 
