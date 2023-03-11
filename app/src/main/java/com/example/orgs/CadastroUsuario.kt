@@ -52,8 +52,13 @@ class CadastroUsuario : AppCompatActivity() {
         AdicionaCadastro(bt)
 
         intent.getParcelableExtra<Cadastro>("CADASTRO")?.let { produtoCarregado ->
+            title = "Editar Cadastro"
             id = produtoCarregado.id
             binding.imgCadastroUsuario.TentacarregarImagem(produtoCarregado.imagem)
+            /*
+            envia na URL novamente a URL do produto, visto que a implementação para salvamento da img está atrelado na variavel url
+             */
+            url = produtoCarregado.imagem
             binding.cadastroNome.setText(produtoCarregado.nome)
             binding.cadastroEmail.setText(produtoCarregado.email)
             binding.cadastroPhone.setText(produtoCarregado.phone.toPlainString())
@@ -78,10 +83,20 @@ class CadastroUsuario : AppCompatActivity() {
                 recuperaphone.toBigDecimal()
             }
 
-            val cadastro = Cadastro(nome = recuperanome, email = recuperaemail, phone = dadosphone)
+            val cadastro = Cadastro(nome = recuperanome, email = recuperaemail, phone = dadosphone, id = id)
 
             val buider = dao.buider(this)
-            buider.salva(cadastro)
+            /*
+            faz a condição utilizando a property id, onde se o id for maior que "0" a função do DAO é atualiza
+            caso clicar no bt de salvar e o id for menor ou igual a 0 a função acionada do DAO é o Salva.
+             */
+            if (id > 0){
+                buider.atualiza(cadastro)
+            }
+            else{
+                buider.salva(cadastro)
+            }
+
 
             finish()
 

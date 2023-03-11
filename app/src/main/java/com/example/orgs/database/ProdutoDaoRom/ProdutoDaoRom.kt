@@ -5,6 +5,7 @@ import androidx.room.Delete
 import androidx.room.Entity
 import androidx.room.Insert
 import androidx.room.Query
+import androidx.room.Update
 import com.example.orgs.adapter.lista.Cadastro
 
 
@@ -26,6 +27,9 @@ com suas funções
 
    @Delete
    fun deleta(vararg cadastro: Cadastro)
+
+   @Update
+   fun atualiza(vararg cadastro: Cadastro)
 
 
 }

@@ -54,6 +54,7 @@ utilizando o binding e determinando onde cada informação será alocada
                 if (::produto.isInitialized) {
                     val buider = CadastroBuilder().buider(this)
                     buider.deleta(produto)
+                    finish()
 
                 }
             }
