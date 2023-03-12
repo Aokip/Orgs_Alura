@@ -52,7 +52,7 @@ class CadastroUsuario : AppCompatActivity() {
         AdicionaCadastro(bt)
 
         intent.getParcelableExtra<Cadastro>("CADASTRO")?.let { produtoCarregado ->
-            title = "Editar Cadastro"
+            title = produtoCarregado.nome
             id = produtoCarregado.id
             binding.imgCadastroUsuario.TentacarregarImagem(produtoCarregado.imagem)
             /*

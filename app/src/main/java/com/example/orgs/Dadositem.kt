@@ -11,10 +11,19 @@ import com.example.orgs.databinding.ActivityDadosItemBinding
 import com.example.orgs.extenx.TentacarregarImagem
 
 class Dadositem : AppCompatActivity() {
-    private lateinit var produto: Cadastro
+    private var produtoid: Long? = null
+    private var produto: Cadastro? = null
     private val binding by lazy {
         ActivityDadosItemBinding.inflate(layoutInflater)
     }
+    /*
+    inicia uma variavel em lazy visto que será utilizado para buscar o id e na ação de remover,
+    deixando o código mais limpo.
+     */
+    private val buider by lazy {
+        CadastroBuilder().buider(this)
+    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,6 +37,26 @@ utilizando o binding e determinando onde cada informação será alocada
 
     }
 
+    override fun onResume() {
+        super.onResume()
+        /*
+        chama a variavl "produtoid" inicializada caso exista um obj a ser apresentado ->
+        Inicializado na Intent onde é recebido o id
+        faz a chamada no ROOM através da função do "buscaporID", armazena o id na variavel produto ->
+        Faz um safecall se o produto for diferente de nulo, chama a função para preencher os campos, conforme
+        o id enviado.
+         */
+        produtoid?.let { idproduto ->
+          produto = buider.buscaporID(idproduto)
+        }
+        produto?.let {
+            CarregaOBJ(it)
+
+        }
+
+        ?: finish()
+    }
+
     /*
     Implementa o menu na actv e faz o processo de inflater para ser apresentado na actv de detalhes do cadastro
 
@@ -36,6 +65,7 @@ utilizando o binding e determinando onde cada informação será alocada
         menuInflater.inflate(R.menu.menu_detalhes, menu)
         return super.onCreateOptionsMenu(menu)
     }
+
 
     /*
        função onOptionsItemSelected tem a função de identificar qual menu foi selecionado e realizar a
@@ -50,14 +80,17 @@ utilizando o binding e determinando onde cada informação será alocada
                 um valor nulo ao abrir os dados do item e crashar o app, com a verificação "initialized"
                 verifica se ao clicar no produto foi recebido um obj do tipo cadastro, com a recebimento
                 do obj o produto foi inicializado.
+                - Alterado a condição de initialized para o let, visto que será utilizado com o vinculo do BD para
+                a verificação e tratamento do não nulo, com o .let faz a checagem correta se o cadastro for nulo
+                enviando o cadastro caso não for utilizando o "it", conseguindo confirmar que o valor não é null
                  */
-                if (::produto.isInitialized) {
-                    val buider = CadastroBuilder().buider(this)
-                    buider.deleta(produto)
+                produto?.let {
+                    buider.deleta(it)
                     finish()
-
                 }
             }
+
+
             R.id.menu_editar -> {
                 /*
                 Ao clicar no campo editar, será enviado o cadastro para a actv de cadstro preenchendo
@@ -70,22 +103,28 @@ utilizando o binding e determinando onde cada informação será alocada
 
             }
 
+
+
         }
-
-
-
         return super.onOptionsItemSelected(item)
     }
 
+    /*
+    função para receber os dados da Main, quando clicado no obj
+     */
     private fun RecebeDados() {
         intent.getParcelableExtra<Cadastro>("CHAVEDOPRODUTO")?.let { produtocarregado ->
-            produto = produtocarregado
-            CarregaOBJ(produtocarregado)
+            produtoid = produtocarregado.id
+
+
 
 
         }
     }
 
+    /*
+    Função para prencher os campos na actv de detalhes e edição.
+     */
     private fun CarregaOBJ(produtocarregado: Cadastro) {
         binding.imgDadosItem.TentacarregarImagem(produtocarregado.imagem)
         binding.TVDadosItem.text = produtocarregado.email

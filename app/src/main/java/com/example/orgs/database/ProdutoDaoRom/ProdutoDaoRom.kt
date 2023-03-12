@@ -31,5 +31,11 @@ com suas funções
    @Update
    fun atualiza(vararg cadastro: Cadastro)
 
+   /*
+   Implementado uma Query para ser carregado o produto na actv Dadositem ao editar, deixando de utilizar
+   a Intent para enviar um obj e utilizando o ROOm para apresentar os dados atualizados após editar
+    */
+   @Query("SELECT * FROM CADASTRO WHERE id = :id")
+    fun buscaporID(id:Long) : Cadastro?
 
 }
