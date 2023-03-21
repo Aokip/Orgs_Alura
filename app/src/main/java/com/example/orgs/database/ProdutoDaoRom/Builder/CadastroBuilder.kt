@@ -15,8 +15,7 @@ class CadastroBuilder {
             AppDataBase::class.java,
             "Orgs.bd"
 
-        ).allowMainThreadQueries()
-            .build()
+        ).build()
         /*
         faz a chamada da variavel db e instancia o "databaseProduto" dentro da classe
         "AppDataBase" onde possui os conversores e a função "databaseProduto" que faz um extensão da

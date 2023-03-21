@@ -13,6 +13,10 @@ import com.example.orgs.database.ProdutoDaoRom.AppDataBase
 import com.example.orgs.database.ProdutoDaoRom.Builder.CadastroBuilder
 import com.example.orgs.database.ProdutoDaoRom.ProdutoDaoRom
 import com.example.orgs.databinding.ActivityMainBinding
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class MainActivity : AppCompatActivity() {
 
@@ -20,6 +24,14 @@ class MainActivity : AppCompatActivity() {
     private val binding by lazy {
         ActivityMainBinding.inflate(layoutInflater)
     }
+    /*
+    Declaração do corretines como property
+     */
+    private val scope = MainScope()
+    val dao = CadastroBuilder().buider(this)
+    val listaDeDadosAdapter = ListaDeDadosAdapter(dao.buscatodos())
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -31,10 +43,17 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        val dao = CadastroBuilder().buider(this)
+
         AbreCadastro()
         val recycler = binding.rv
-        val listaDeDadosAdapter = ListaDeDadosAdapter(dao.buscatodos())
+        scope.launch {
+            val produtos = withContext(Dispatchers.IO){
+                dao.buscatodos()
+            }
+            ListaDeDadosAdapter(produtos)
+
+        }
+
         recycler.adapter = listaDeDadosAdapter
         recycler.layoutManager = LinearLayoutManager(this)
         /*
